@@ -4,6 +4,7 @@ using ll = long long;
 #define FOR(i, m, n) for (ll i = m; i <= n; ++i)
 template<class t> using vc = vector<t>;
 
+// エラトステネスの篩
 // 1 以上 N 以下の整数が素数かどうかを返す
 vc<bool> Eratosthenes(ll N) {
     vc<bool> isprime(N+1, true);
