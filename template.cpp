@@ -23,11 +23,6 @@ template<class t> using vvvc = vc<vc<vc<t>>>;
 template<class t> using pq = priority_queue<t>;
 template<class t> using pqg = priority_queue<t, vc<t>, greater<t>>;
 template<class t, class u> using um = unordered_map<t, u>;
-struct Edge {
-    ll to;
-    ll weight;
-    Edge(ll t, ll w) : to(t), weight(w) { }
-};
 template<int MOD> struct Fp {
     long long val;
     constexpr Fp(long long v = 0) noexcept : val(v % MOD) {

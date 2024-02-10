@@ -94,7 +94,7 @@ ll ans(ll n){
     if(m.count(n))return m[n];
     return m[n]=ans(n/2)+ans((n+1)/2)+n;
 }
-
+// 再帰関数，漸化式，メモ化再帰
 void solve(){
     ll n;
     cin>>n;
