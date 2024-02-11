@@ -3,8 +3,7 @@ using namespace std;
 using ll = long long;
 
 // Union-Find
-struct UnionFind
-{
+struct UnionFind {
     vector<ll> par, rank, siz;
     // 構造体の初期化
     UnionFind(ll n) : par(n, -1), rank(n, 0), siz(n, 1) {}
