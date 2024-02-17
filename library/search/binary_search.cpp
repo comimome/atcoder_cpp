@@ -5,18 +5,18 @@ template<class t> using vc = vector<t>;
 
 // index が条件を満たすかどうか
 vc<ll> bs;
-bool isOK(int index, ll key) {
+bool isOK(ll index, ll key) {
     if (bs[index] > key) return true;
     else return false;
 }
 
 // 二分探索
-int binary_search(ll key) {
-    int left = -1; //「index = 0」が条件を満たすこともあるので、初期値は -1
-    int right = (int)bs.size(); // 「index = a.size()-1」が条件を満たさないこともあるので、初期値は a.size()
+ll binary_search(ll key) {
+    ll left = -1; //「index = 0」が条件を満たすこともあるので、初期値は -1
+    ll right = (ll)bs.size(); // 「index = a.size()-1」が条件を満たさないこともあるので、初期値は a.size()
 
     while (right - left > 1) {
-        int mid = left + (right - left) / 2;
+        ll mid = left + (right - left) / 2;
 
         if (isOK(mid, key)) right = mid;
         else left = mid;
