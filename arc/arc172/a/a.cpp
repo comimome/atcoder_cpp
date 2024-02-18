@@ -84,23 +84,31 @@ ll lcm(ll a, ll b) { return a/gcd(a,b)*b; } // 最小公倍数
 void Yes(bool f = 1) { cout<<(f ? "Yes" : "No")<<endl; }
 void No(bool f = 1) { Yes(!f); }
 
-// 二分探索
 void solve(){
-    ll n,m,k;
-    cin>>n>>m>>k;
-    ll x=(n*m)/gcd(n,m);
-    ll left = 0; //「index = 0」が条件を満たすこともあるので、初期値は -1
-    ll right = (ll)2e+18; // 「index = a.size()-1」が条件を満たさないこともあるので、初期値は a.size()
-
-    while ((left+1)<right) {
-        ll mid = (right + left) / 2;
-        ll y = (mid/n)+(mid/m)-2*(mid/x);
-
-        if (y<k) left = mid;
-        else right = mid;
-        // cout<<left<<" "<<right<<endl;
+    ll h,w,n;
+    cin>>h>>w>>n;
+    vc<ll> a(n);
+    vc<ll> sum(26,0);
+    REP(i,n){
+        cin>>a[i];
+        sum[a[i]]++;
     }
-    cout<<right<<endl;
+    vc<ll> b(26,1);
+    FOR(i,1,25){
+        b[i]=b[i-1]*2;
+    }
+    bool ans=true;
+    ll d=0;
+    REPR(i,25){
+        // cout<<i<<" "<<sum[i]<<" "<<b[i]<<endl;
+        if(d+sum[i]*b[i]*b[i]>(h/b[i])*(w/b[i])*b[i]*b[i]){
+            cout<<"No"<<endl;
+            ans=false;
+            break;
+        }
+        d+=sum[i]*b[i]*b[i];
+    }
+    if(ans)cout<<"Yes"<<endl;
 }
 
 int main(){

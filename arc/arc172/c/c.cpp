@@ -84,23 +84,38 @@ ll lcm(ll a, ll b) { return a/gcd(a,b)*b; } // 最小公倍数
 void Yes(bool f = 1) { cout<<(f ? "Yes" : "No")<<endl; }
 void No(bool f = 1) { Yes(!f); }
 
-// 二分探索
 void solve(){
-    ll n,m,k;
-    cin>>n>>m>>k;
-    ll x=(n*m)/gcd(n,m);
-    ll left = 0; //「index = 0」が条件を満たすこともあるので、初期値は -1
-    ll right = (ll)2e+18; // 「index = a.size()-1」が条件を満たさないこともあるので、初期値は a.size()
-
-    while ((left+1)<right) {
-        ll mid = (right + left) / 2;
-        ll y = (mid/n)+(mid/m)-2*(mid/x);
-
-        if (y<k) left = mid;
-        else right = mid;
-        // cout<<left<<" "<<right<<endl;
+    ll n;
+    cin>>n;
+    string c;
+    cin>>c;
+    vvc<ll> dp(n,vc<ll>(2,0));
+    vc<ll> diff(n,0);
+    ll ans=1;
+    FOR(i,1,n-1){
+        if(c[i]=='A'){
+            dp[i][0]=dp[i-1][0]+1;
+            dp[i][1]=dp[i-1][1];
+        }
+        else if(c[i]=='B'){
+            dp[i][1]=dp[i-1][1]+1;
+            dp[i][0]=dp[i-1][0];
+        }
+        diff[i]=dp[i][0]-dp[i][1];
+        if(c[0]=='A'){
+            if(diff[i]==-1 or diff[i]==0)ans++;
+        }
+        else if(c[0]=='B'){
+            if(diff[i]==1 or diff[i]==0)ans++;
+        }
     }
-    cout<<right<<endl;
+    if(c[0]=='B'){
+        if(diff[n-1]==-1 or diff[n-1]==0)ans++;
+    }
+    else if(c[0]=='A'){
+        if(diff[n-1]==1 or diff[n-1]==0)ans++;
+    }
+    cout<<ans<<endl;
 }
 
 int main(){

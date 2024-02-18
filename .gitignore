@@ -1,9 +1,6 @@
 /.vscode
 /a.out
-/abcsetup.sh
-/abcsetup_config.sh
-/abcsub.sh
-/abctest.sh
 /ac-library
 *.json
+*.sh
 tests/
