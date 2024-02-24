@@ -2,7 +2,7 @@
 using namespace std;
 using ll = long long;
 
-// 素因数分解
+// 素因数分解，O(root(N))
 map<ll, ll> prime_factor(ll N) {
     map<ll, ll> ret;
     for(ll i=2; i*i<=N; i++){

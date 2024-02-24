@@ -8,7 +8,7 @@ using Graph = vvc<ll>;
 vc<bool> seen;
 bool seen_assign = true;
 // 深さ優先探索 DFS，頂点 v を始点とする
-void dfs(const Graph& graph, ll v) {
+void dfs(const Graph &graph, ll v) {
     if(seen_assign){
         seen.assign(graph.size(), false);
         seen_assign = false;
