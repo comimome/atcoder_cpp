@@ -1,7 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// 約数列挙，O(root(N))
+// 約数列挙
+// O(root(N))
 vector<long long> enum_divisor(long long N) {
   vector<long long> res;
   for (long long i = 1; i * i <= N; ++i) {
