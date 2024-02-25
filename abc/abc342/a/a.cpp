@@ -3,10 +3,10 @@ using namespace std;
 using ll = long long;
 using ull = unsigned long long;
 using ld = long double;
-#define FOR(i, m, n) for (ll i = (m); i <= (n); ++i)
-#define FORR(i, m, n) for (ll i = (m); i >= (n); --i)
-#define REP(i, n) for (ll i = 0; i < (n); ++i)
-#define REPR(i, n) for (ll i = (n); i >= 0; --i)
+#define FOR(i, m, n) for (ll i = m; i <= n; ++i)
+#define FORR(i, m, n) for (ll i = m; i >= n; --i)
+#define REP(i, n) for (ll i = 0; i < n; ++i)
+#define REPR(i, n) for (ll i = n; i >= 0; --i)
 #define ALL(v) (v).begin(),(v).end()
 #define RV(v) reverse((v).begin(), (v).end())
 #define BS(v, key) binary_search((v).begin(), (v).end(), key)
@@ -85,6 +85,14 @@ void Yes(bool f = 1) { cout<<(f ? "Yes" : "No")<<endl; }
 void No(bool f = 1) { Yes(!f); }
 
 void solve(){
+    string s;
+    cin>>s;
+    int ans=0;
+    REP(i,s.size()-1){
+        if(s[i]!=s[i+1])ans=i;
+    }
+    if(s[s.size()-1]!=s[0] and s[s.size()-1]!=s[1])ans=s.size()-1;
+    cout<<ans+1<<endl;
 }
 
 int main(){

@@ -3,10 +3,10 @@ using namespace std;
 using ll = long long;
 using ull = unsigned long long;
 using ld = long double;
-#define FOR(i, m, n) for (ll i = (m); i <= (n); ++i)
-#define FORR(i, m, n) for (ll i = (m); i >= (n); --i)
-#define REP(i, n) for (ll i = 0; i < (n); ++i)
-#define REPR(i, n) for (ll i = (n); i >= 0; --i)
+#define FOR(i, m, n) for (ll i = m; i <= n; ++i)
+#define FORR(i, m, n) for (ll i = m; i >= n; --i)
+#define REP(i, n) for (ll i = 0; i < n; ++i)
+#define REPR(i, n) for (ll i = n; i >= 0; --i)
 #define ALL(v) (v).begin(),(v).end()
 #define RV(v) reverse((v).begin(), (v).end())
 #define BS(v, key) binary_search((v).begin(), (v).end(), key)
@@ -85,6 +85,32 @@ void Yes(bool f = 1) { cout<<(f ? "Yes" : "No")<<endl; }
 void No(bool f = 1) { Yes(!f); }
 
 void solve(){
+    int n;
+    cin>>n;
+    string s;
+    cin>>s;
+    string alph="abcdefghijklmnopqrstuvwxyz";
+    string to=alph;
+    int q;
+    cin>>q;
+    vc<char> c(q),d(q);
+    REP(i,q){
+        cin>>c[i]>>d[i];
+        REP(j,to.size()){
+            if(to[j]==c[i]){
+                to[j]=d[i];
+            }
+        }
+    }
+    REP(i,s.size()){
+        REP(j,alph.size()){
+            if(s[i]==alph[j]){
+                cout<<to[j];
+                break;
+            }
+        }
+    }
+    cout<<endl;
 }
 
 int main(){

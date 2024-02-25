@@ -3,10 +3,10 @@ using namespace std;
 using ll = long long;
 using ull = unsigned long long;
 using ld = long double;
-#define FOR(i, m, n) for (ll i = (m); i <= (n); ++i)
-#define FORR(i, m, n) for (ll i = (m); i >= (n); --i)
-#define REP(i, n) for (ll i = 0; i < (n); ++i)
-#define REPR(i, n) for (ll i = (n); i >= 0; --i)
+#define FOR(i, m, n) for (ll i = m; i <= n; ++i)
+#define FORR(i, m, n) for (ll i = m; i >= n; --i)
+#define REP(i, n) for (ll i = 0; i < n; ++i)
+#define REPR(i, n) for (ll i = n; i >= 0; --i)
 #define ALL(v) (v).begin(),(v).end()
 #define RV(v) reverse((v).begin(), (v).end())
 #define BS(v, key) binary_search((v).begin(), (v).end(), key)
@@ -85,6 +85,22 @@ void Yes(bool f = 1) { cout<<(f ? "Yes" : "No")<<endl; }
 void No(bool f = 1) { Yes(!f); }
 
 void solve(){
+    int n;
+    cin>>n;
+    vc<int> p(n+1);
+    REP(i,n){
+        int p0;
+        cin>>p0;
+        p[p0]=i+1;
+    }
+    int q;
+    cin>>q;
+    vc<int> a(q),b(q);
+    REP(i,q){
+        cin>>a[i]>>b[i];
+        if(p[a[i]]>p[b[i]])cout<<b[i]<<endl;
+        else cout<<a[i]<<endl;
+    }
 }
 
 int main(){

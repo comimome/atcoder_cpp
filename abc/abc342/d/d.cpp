@@ -85,6 +85,23 @@ void Yes(bool f = 1) { cout<<(f ? "Yes" : "No")<<endl; }
 void No(bool f = 1) { Yes(!f); }
 
 void solve(){
+    int n;
+    cin>>n;
+    vc<int> a(n);
+    REP(i,n)cin>>a[i];
+    const int m=1e6+1;
+    vc<int> s(m);
+    iota(ALL(s),0);
+    FORR(d,1000,2){
+        for(int k=d*d;k<m;k+=d*d){
+            if(s[k]%(d*d)==0)s[k]/=d*d;
+        }
+    }
+    vc<int> cnt(m);
+    REP(i,n)cnt[s[a[i]]]++;
+    ll ans=0;
+    REP(i,m)ans+=(ll)cnt[i]*cnt[i];
+    cout<<(ans-n)/2+(ll)cnt[0]*(n-cnt[0])<<endl;
 }
 
 int main(){
