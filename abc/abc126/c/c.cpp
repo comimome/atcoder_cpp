@@ -87,6 +87,17 @@ void No(bool f = 1) { Yes(!f); }
 void solve(){
     int n,k;
     cin>>n>>k;
+    double ans=0;
+    FOR(i,1,n){
+        int y=i;
+        double q=1.0/n;
+        while(y<k){
+            y*=2;
+            q/=2;
+        }
+        ans+=q;
+    }
+    cout<<ans<<endl;
 }
 
 int main(){

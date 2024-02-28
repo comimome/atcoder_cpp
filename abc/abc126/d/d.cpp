@@ -83,8 +83,23 @@ ll gcd(ll a, ll b) { return b?gcd(b,a%b):a; } // 最大公約数
 ll lcm(ll a, ll b) { return a/gcd(a,b)*b; } // 最小公倍数
 void Yes(bool f = 1) { cout<<(f ? "Yes" : "No")<<endl; }
 void No(bool f = 1) { Yes(!f); }
-
+struct Edge{ // 辺の情報
+	ll to; // 行先
+	ll cost; // コスト
+};
+using Graph = vvc<Edge>;
 void solve(){
+    int n;
+    cin>>n;
+    vc<int> u(n),v(n),w(n);
+    Graph g(n);
+    REP(i,n-1){
+        cin>>u[i]>>v[i]>>w[i];
+        u[i]--;
+        v[i]--;
+        g[u[i]].push_back({v[i],w[i]});
+        g[v[i]].push_back({u[i],w[i]});
+    }
 }
 
 int main(){
