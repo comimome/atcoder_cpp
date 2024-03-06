@@ -87,16 +87,18 @@ void No(bool f = 1) { Yes(!f); }
 void solve(){
     int n;
     cin>>n;
-    vc<ll> a(n),b(n+2,0);
+    vvc<int> a(n,vc<int>(n));
+    vc<pq<int>> q(n);
     REP(i,n){
-        cin>>a[i];
-        b[i+1]=(b[i]+a[i])%360;
+        REP(j,n){
+            cin>>a[i][j];
+            if(a[i][j]==1){
+                cout<<j+1<<" ";
+            }
+        }
+        cout<<endl;
     }
-    b[n+1]=360;
-    sort(ALL(b));
-    ll dif=0;
-    REP(i,n+1)dif=max(dif,b[i+1]-b[i]);
-    cout<<dif<<endl;
+
 }
 
 int main(){

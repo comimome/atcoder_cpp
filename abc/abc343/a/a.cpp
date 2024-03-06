@@ -85,18 +85,11 @@ void Yes(bool f = 1) { cout<<(f ? "Yes" : "No")<<endl; }
 void No(bool f = 1) { Yes(!f); }
 
 void solve(){
-    int n;
-    cin>>n;
-    vc<ll> a(n),b(n+2,0);
-    REP(i,n){
-        cin>>a[i];
-        b[i+1]=(b[i]+a[i])%360;
-    }
-    b[n+1]=360;
-    sort(ALL(b));
-    ll dif=0;
-    REP(i,n+1)dif=max(dif,b[i+1]-b[i]);
-    cout<<dif<<endl;
+    int a,b;
+    cin>>a>>b;
+    int k=a+b;
+    if(k==9)cout<<8<<endl;
+    else cout<<k+1<<endl;
 }
 
 int main(){

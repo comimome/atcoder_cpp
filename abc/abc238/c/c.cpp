@@ -85,6 +85,13 @@ void Yes(bool f = 1) { cout<<(f ? "Yes" : "No")<<endl; }
 void No(bool f = 1) { Yes(!f); }
 
 void solve(){
+    ll n;
+    cin>>n;
+    vc<ll> dp(n,0);
+    FOR(i,1,n){
+        string s=stoi(i);
+
+    }
 }
 
 int main(){

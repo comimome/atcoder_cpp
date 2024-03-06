@@ -83,20 +83,20 @@ ll gcd(ll a, ll b) { return b?gcd(b,a%b):a; } // 最大公約数
 ll lcm(ll a, ll b) { return a/gcd(a,b)*b; } // 最小公倍数
 void Yes(bool f = 1) { cout<<(f ? "Yes" : "No")<<endl; }
 void No(bool f = 1) { Yes(!f); }
-
+bool check(ll n){
+    string s=to_string(n);
+    string t=s;
+    reverse(t.begin(),t.end());
+    return s==t;
+}
 void solve(){
-    int n;
+    ll n;
     cin>>n;
-    vc<ll> a(n),b(n+2,0);
-    REP(i,n){
-        cin>>a[i];
-        b[i+1]=(b[i]+a[i])%360;
+    ll ans=0;
+    for(ll i=1; i*i*i <= n; i++){
+        if(check(i*i*i))ans=i*i*i;
     }
-    b[n+1]=360;
-    sort(ALL(b));
-    ll dif=0;
-    REP(i,n+1)dif=max(dif,b[i+1]-b[i]);
-    cout<<dif<<endl;
+    cout<<ans<<endl;
 }
 
 int main(){
