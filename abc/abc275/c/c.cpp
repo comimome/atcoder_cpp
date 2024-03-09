@@ -85,6 +85,33 @@ void Yes(bool f = 1) { cout<<(f ? "Yes" : "No")<<endl; }
 void No(bool f = 1) { Yes(!f); }
 
 void solve(){
+    vc<string> s(9);
+    REP(i,9)cin>>s[i];
+    auto valid = [&](int x, int y){
+        return clamp(x,0,8)==x and clamp(y,0,8)==y and s[x][y]=='#';
+    };
+    set<set<pair<int,int>>> st;
+    REP(i,9){
+        REP(j,9){
+            FOR(dx,-8,10){
+                FOR(dy,-8,10){
+                    if(!dx and !dy)continue;
+                    int i2=i+dx,j2=j+dy;
+                    int i3=i2-dy,j3=j2+dx;
+                    int i4=i3-dx,j4=j3-dy;
+                    if(valid(i,j) and valid(i2,j2) and valid(i3,j3) and valid(i4,j4)){
+                        set<pair<int,int>> sq;
+                        sq.insert({i,j});
+                        sq.insert({i2,j2});
+                        sq.insert({i3,j3});
+                        sq.insert({i4,j4});
+                        st.insert(sq);
+                    }
+                }
+            }
+        }
+    }
+    cout<<st.size()<<endl;
 }
 
 int main(){

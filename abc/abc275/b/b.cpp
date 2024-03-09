@@ -85,6 +85,10 @@ void Yes(bool f = 1) { cout<<(f ? "Yes" : "No")<<endl; }
 void No(bool f = 1) { Yes(!f); }
 
 void solve(){
+    ull a,b,c,d,e,f;
+    cin>>a>>b>>c>>d>>e>>f;
+    ull ans=((((a%mod93)*(b%mod93))%mod93*(c%mod93))%mod93+mod93-(((d%mod93)*(e%mod93))%mod93*(f%mod93))%mod93)%mod93;
+    cout<<ans<<endl;
 }
 
 int main(){

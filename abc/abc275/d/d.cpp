@@ -84,7 +84,20 @@ ll lcm(ll a, ll b) { return a/gcd(a,b)*b; } // 最小公倍数
 void Yes(bool f = 1) { cout<<(f ? "Yes" : "No")<<endl; }
 void No(bool f = 1) { Yes(!f); }
 
+map<ll,ll> mp;
+ll f(ll n){
+    if(mp.find(n)==mp.end()){
+        ll a=f(n/2);
+        ll b=f(n/3);
+        mp[n]=a+b;
+    }
+    return mp[n];
+}
 void solve(){
+    ll n;
+    cin>>n;
+    mp[0]=1;
+    cout<<f(n)<<endl;
 }
 
 int main(){
